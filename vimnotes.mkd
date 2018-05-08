@@ -1,0 +1,67 @@
+# Vim Tips and Tricks I Learned But Sometimes Forget
+
+[Vim Help Files](http://vimhelp.appspot.com/) -
+[Vim-Fu: Basic Vim Tips](http://bencrowder.net/files/vim-fu/) -
+[Advanced Vim Commands vid](https://www.youtube.com/watch?v=1alWK5ByNMc)
+
+
+## Search
+
+### Use `g*` and `g#` to search pattern under cursor
+- Using splat or hash without `g` prefix performs exact WORD match.
+- Using `g*` or `g#` finds pattern in middle of WORD too.
+
+### Search Highlighting
+
+- Use `:set hlsearch` to turn on.
+- Use `:set nohls` to turn off.
+- Change colors via `:hi Search ctermfg=blue ctermbg=gray` (or your favorite colors; use recognized color names, or 0-255 for [Xterm colors](https://jonasjacek.github.io/colors/) (see `:help cterm-colors` for info).
+
+Testing (changing of the) brackets and (parens and) curly {braces.}
+
+## Autocomplete
+### Autocomplete a Word
+
+- Use `ctrl-p` (while in Insert Mode).
+- Case sensitive.
+- If multiple pattern candidates, list of choices appears.
+	- Use arrow keys (not j k) to navigate list of choices.
+- Text to be completed must be in the document.
+	- Cannot be something that was deleted.
+	- Can it be something in another open buffer?
+		- Testing with "Polynomial".  Yes, it works!
+- Shift key (using capital P) seems to work the same.
+
+
+### Autocomplete a Line
+
+- Use `ctrl-x ctrl-l` (while in Insert Mode).
+
+
+### Autocomplete Path, Filename
+
+- Search path using `ctrl-x ctrl-f` (Insert Mode).
+- Use [tab] key to autocomplete filenames in the current dir (Command Mode).
+	- Example:  `:e [tab]` cycles through files you could open.
+- Use `ctrl-o` to open older buffers; `ctrl-i` to cycle back through newer buffers.	
+
+
+
+## Vim Markdown Highlighting
+
+By default, Vim assumes the `.md` file extension is for the Modulo programming language, not Markdown.  I'm now using the `.mkd` file extension.
+
+
+
+## VimRC
+
+Eventually, I'll set this up a proper .vimrc.  For now, when I launch Vim, I :set my environment.
+
+	- :set tabstop=8 wrap lbr tw=0 ruler nu rnu cursorline cursorcolumn fdm=marker 
+	- :hi CursorLine cterm=NONE ctermbg=17 ctermfg=200
+	- :hi CursorColumn ctermbg=234 ctermfg=3
+	- :autocmd InsertEnter * set cul
+	- :autocmd InsertLeave * set nocul
+	- :nunmap <C-a>
+
+
