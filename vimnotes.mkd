@@ -7,6 +7,12 @@
 Let's try using her mallard.blah examples.
 
 ## Search
+In general, using the `Shift` key will toggle search direction.
+
+- Use `/` to input an arbitrary forward search pattern.
+	- Use `n` to find next match; `N` to find previous match.
+- Use `?` to input an arbitrary backward search pattern.
+	- Use `N` to find next match; `n` to find previous match.
 
 ### Use `g*` and `g#` to search pattern under cursor
 - Using splat or hash without `g` prefix performs exact WORD match.
