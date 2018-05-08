@@ -20,12 +20,13 @@ In general, using the `Shift` key will toggle search direction.
 
 ### Search Highlighting
 
-
 - Use `:set hlsearch` to turn on.
 - Use `:set nohls` to turn off.
 - Change colors via `:hi Search ctermfg=blue ctermbg=gray` (or your favorite colors; use recognized color names, or 0-255 for [Xterm colors](https://jonasjacek.github.io/colors/) (see `:help cterm-colors` for info).
 
-Testing (changing of the) brackets and (parens and) curly {braces.}
+### Delete lines that contain a pattern match
+
+- `:g/foo/d` **d**eletes all lines that contain "foo".
 
 
 ## Autocomplete
