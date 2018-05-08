@@ -4,20 +4,26 @@
 [Vim-Fu: Basic Vim Tips](http://bencrowder.net/files/vim-fu/) -
 [Advanced Vim Commands vid](https://www.youtube.com/watch?v=1alWK5ByNMc)
 
+Let's try using her mallard.blah examples.
 
 ## Search
 
 ### Use `g*` and `g#` to search pattern under cursor
 - Using splat or hash without `g` prefix performs exact WORD match.
 - Using `g*` or `g#` finds pattern in middle of WORD too.
+- Use `n` to find next match; `N` to find previous match.
 
 ### Search Highlighting
+
+Here's another random mallard.whatev thingy.
 
 - Use `:set hlsearch` to turn on.
 - Use `:set nohls` to turn off.
 - Change colors via `:hi Search ctermfg=blue ctermbg=gray` (or your favorite colors; use recognized color names, or 0-255 for [Xterm colors](https://jonasjacek.github.io/colors/) (see `:help cterm-colors` for info).
 
 Testing (changing of the) brackets and (parens and) curly {braces.}
+
+Think there can't be a mallard.here -- wrong.
 
 ## Autocomplete
 ### Autocomplete a Word
@@ -32,6 +38,7 @@ Testing (changing of the) brackets and (parens and) curly {braces.}
 		- Testing with "Polynomial".  Yes, it works!
 - Shift key (using capital P) seems to work the same.
 
+And what about mallard.last -- that should be a thing,right?
 
 ### Autocomplete a Line
 
