@@ -6,18 +6,27 @@
 
 
 ## Search
+In general, using the `Shift` key will toggle search direction.
+
+- Use `/` to input an arbitrary forward search pattern.
+	- Use `n` to find next match; `N` to find previous match.
+- Use `?` to input an arbitrary backward search pattern.
+	- Use `N` to find next match; `n` to find previous match.
 
 ### Use `g*` and `g#` to search pattern under cursor
 - Using splat or hash without `g` prefix performs exact WORD match.
 - Using `g*` or `g#` finds pattern in middle of WORD too.
+- Use `n` to find next match; `N` to find previous match.
 
 ### Search Highlighting
+
 
 - Use `:set hlsearch` to turn on.
 - Use `:set nohls` to turn off.
 - Change colors via `:hi Search ctermfg=blue ctermbg=gray` (or your favorite colors; use recognized color names, or 0-255 for [Xterm colors](https://jonasjacek.github.io/colors/) (see `:help cterm-colors` for info).
 
 Testing (changing of the) brackets and (parens and) curly {braces.}
+
 
 ## Autocomplete
 ### Autocomplete a Word
