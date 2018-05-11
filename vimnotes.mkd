@@ -4,6 +4,17 @@
 [Vim-Fu: Basic Vim Tips](http://bencrowder.net/files/vim-fu/) -
 [Advanced Vim Commands vid](https://www.youtube.com/watch?v=1alWK5ByNMc)
 
+## Navigation
+
+### Motions
+- h j k l
+- **b**ack, **w**ord (forward), **f**ind, **t**ill, etc.
+
+### Jumps
+- Motions are different than jumps, because jumps are stored in the `:jumps` list.
+- Use `ctrl-o` to go back in the jumpslist, and `ctrl-i` to go forward.
+- Go to a specific row with `:nn` (not stored in jumpslist) or `nnG` (**is** stored in jumpslist).
+- Go to a specific column with `nn|` (that's the vertical pipe character).
 
 ## Search
 In general, using the `Shift` key will toggle search direction.
@@ -65,7 +76,7 @@ By default, Vim assumes the `.md` file extension is for the Modulo programming l
 
 ## VimRC
 
-Eventually, I'll set this up a proper .vimrc.  For now, when I launch Vim, I :set my environment.
+Eventually, I'll set this up a proper .vimrc.  For now, when I launch Vim, I :set my environment.  Note: Now that I'm using `nnG` jumps more, to jump to an absolute line number, I'm not using `rnu` (relative line number) as much.  Also, I'm not using the `:autocmd` CursorLine toggle as much, because I like seeing which line I'm on, regardless of what mode I'm in.
 
 	- :set tabstop=8 wrap lbr tw=0 ruler nu rnu cursorline cursorcolumn fdm=marker 
 	- :hi CursorLine cterm=NONE ctermbg=17 ctermfg=200

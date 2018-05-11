@@ -1,5 +1,18 @@
 <h1 id="vim-tips-and-tricks-i-learned-but-sometimes-forget">Vim Tips and Tricks I Learned But Sometimes Forget</h1>
 <p><a href="http://vimhelp.appspot.com/">Vim Help Files</a> - <a href="http://bencrowder.net/files/vim-fu/">Vim-Fu: Basic Vim Tips</a> - <a href="https://www.youtube.com/watch?v=1alWK5ByNMc">Advanced Vim Commands vid</a></p>
+<h2 id="navigation">Navigation</h2>
+<h3 id="motions">Motions</h3>
+<ul>
+<li>h j k l</li>
+<li><strong>b</strong>ack, <strong>w</strong>ord (forward), <strong>f</strong>ind, <strong>t</strong>ill, etc.</li>
+</ul>
+<h3 id="jumps">Jumps</h3>
+<ul>
+<li>Motions are different than jumps, because jumps are stored in the <code>:jumps</code> list.</li>
+<li>Use <code>ctrl-o</code> to go back in the jumpslist, and <code>ctrl-i</code> to go forward.</li>
+<li>Go to a specific row with <code>:nn</code> (not stored in jumpslist) or <code>nnG</code> (<strong>is</strong> stored in jumpslist).</li>
+<li>Go to a specific column with <code>nn|</code> (that's the vertical pipe character).</li>
+</ul>
 <h2 id="search">Search</h2>
 <p>In general, using the <code>Shift</code> key will toggle search direction.</p>
 <ul>
@@ -63,7 +76,7 @@
 <h2 id="vim-markdown-highlighting">Vim Markdown Highlighting</h2>
 <p>By default, Vim assumes the <code>.md</code> file extension is for the Modulo programming language, not Markdown. I'm now using the <code>.mkd</code> file extension.</p>
 <h2 id="vimrc">VimRC</h2>
-<p>Eventually, I'll set this up a proper .vimrc. For now, when I launch Vim, I :set my environment.</p>
+<p>Eventually, I'll set this up a proper .vimrc. For now, when I launch Vim, I :set my environment. Note: Now that I'm using <code>nnG</code> jumps more, to jump to an absolute line number, I'm not using <code>rnu</code> (relative line number) as much. Also, I'm not using the <code>:autocmd</code> CursorLine toggle as much, because I like seeing which line I'm on, regardless of what mode I'm in.</p>
 <pre><code>- :set tabstop=8 wrap lbr tw=0 ruler nu rnu cursorline cursorcolumn fdm=marker 
 - :hi CursorLine cterm=NONE ctermbg=17 ctermfg=200
 - :hi CursorColumn ctermbg=234 ctermfg=3
