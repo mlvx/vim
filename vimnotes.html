@@ -72,7 +72,26 @@
 <li>Example: <code>:e [tab]</code> cycles through files you could open.</li>
 <li>Use two dots and a tab -- i.e., <code>..[Tab]</code> or <code>../[Tab]</code> -- to go up a level in the directory tree.</li>
 </ul></li>
-<li>Use <code>ctrl-o</code> to open older buffers; <code>ctrl-i</code> to cycle back through newer buffers.</li>
+<li>Use <code>ctrl-o</code> to open older buffers; <code>ctrl-i</code> to cycle back through newer buffers.
+<ul>
+<li>I need to figure out how this relates to the <code>:jumps</code> list.</li>
+</ul></li>
+</ul>
+<h2 id="windows-and-buffers">Windows and Buffers</h2>
+<ul>
+<li>Use <code>:split</code> for horizonal, <code>:vsplit</code> for vertical split window.
+<ul>
+<li>Use <code>Ctrl-w</code> plus a direction key (h, j, k, l) to move to another pane.</li>
+<li>Use <code>Ctrl-w</code> with <code>+</code> or <code>-</code> or <code>&lt;</code> or <code>&gt;</code> or <code>=</code> to resize panes. Optionally, precede with a numeric count.</li>
+<li>Or, use <code>:resize nn</code> and <code>:vertical resize nn</code> to set window size.</li>
+<li>Use <code>:close</code> to close the currently active pane.</li>
+</ul></li>
+<li>Use <code>:e foo</code> or <code>:edit foo</code> to open a new buffer with &quot;foo&quot; loaded.
+<ul>
+<li>Combine with [Tab] autocompletion for extra goodness!</li>
+</ul></li>
+<li>Use <code>:ls</code> to list the buffers currently open.</li>
+<li>Use <code>:bd</code> to &quot;delete&quot; (really, to close) the currently active file.</li>
 </ul>
 <h2 id="vim-markdown-highlighting">Vim Markdown Highlighting</h2>
 <p>By default, Vim assumes the <code>.md</code> file extension is for the Modulo programming language, not Markdown. I'm now using the <code>.mkd</code> file extension.</p>

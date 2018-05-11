@@ -66,7 +66,18 @@ In general, using the `Shift` key will toggle search direction.
 	- Example:  `:e [tab]` cycles through files you could open.
 	- Use two dots and a tab -- i.e., `..[Tab]` or `../[Tab]` -- to go up a level in the directory tree.
 - Use `ctrl-o` to open older buffers; `ctrl-i` to cycle back through newer buffers.	
+	- I need to figure out how this relates to the `:jumps` list.
 
+## Windows and Buffers
+- Use `:split` for horizonal, `:vsplit` for vertical split window.
+	- Use `Ctrl-w` plus a direction key (h, j, k, l) to move to another pane.
+	- Use `Ctrl-w` with `+` or `-` or `<` or `>` or `=` to resize panes. Optionally, precede with a numeric count.
+	- Or, use `:resize nn` and `:vertical resize nn` to set window size.
+	- Use `:close` to close the currently active pane.
+- Use `:e foo` or `:edit foo` to open a new buffer with "foo" loaded.
+	- Combine with [Tab] autocompletion for extra goodness!
+- Use `:ls` to list the buffers currently open.
+- Use `:bd` to "delete" (really, to close) the currently active file.
 
 
 ## Vim Markdown Highlighting
