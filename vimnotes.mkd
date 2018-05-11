@@ -64,6 +64,7 @@ In general, using the `Shift` key will toggle search direction.
 - Search path using `ctrl-x ctrl-f` (Insert Mode).
 - Use [tab] key to autocomplete filenames in the current dir (Command Mode).
 	- Example:  `:e [tab]` cycles through files you could open.
+	- Use two dots and a tab -- i.e., `..[Tab]` or `../[Tab]` -- to go up a level in the directory tree.
 - Use `ctrl-o` to open older buffers; `ctrl-i` to cycle back through newer buffers.	
 
 
