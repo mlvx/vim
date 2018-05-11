@@ -1,0 +1,5 @@
+I have been using Vim for years, but mostly as a more capable version of Notepad.  It's only recently that I've begun using some of the more powerful features of Vi / Vim.
+
+I've noticed that if I don't use a particular feature for a while, I get a bit rusty with it.  So, this repository is to collect Vim tips and tricks in a handy reference spot for myself.
+
+If it's also useful to others, then that's awesome!  But to be honest, there are already lots of good Vim resources, many of which are much more comprehensive than this one aims to be.

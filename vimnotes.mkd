@@ -1,0 +1,100 @@
+# Vim Tips and Tricks I Learned But Sometimes Forget
+
+[Vim Help Files](http://vimhelp.appspot.com/) -
+[Vim-Fu: Basic Vim Tips](http://bencrowder.net/files/vim-fu/) -
+[Advanced Vim Commands vid](https://www.youtube.com/watch?v=1alWK5ByNMc)
+
+## Navigation
+
+### Motions
+- h j k l
+- **b**ack, **w**ord (forward), **f**ind, **t**ill, etc.
+
+### Jumps
+- Motions are different than jumps, because jumps are stored in the `:jumps` list.
+- Use `ctrl-o` to go back in the jumpslist, and `ctrl-i` to go forward.
+- Go to a specific row with `:nn` (not stored in jumpslist) or `nnG` (**is** stored in jumpslist).
+- Go to a specific column with `nn|` (that's the vertical pipe character).
+
+## Search
+In general, using the `Shift` key will toggle search direction.
+
+- Use `/` to input an arbitrary forward search pattern.
+	- Use `n` to find next match; `N` to find previous match.
+- Use `?` to input an arbitrary backward search pattern.
+	- Use `N` to find next match; `n` to find previous match.
+
+### Use `g*` and `g#` to search pattern under cursor
+- Using splat or hash without `g` prefix performs exact WORD match.
+- Using `g*` or `g#` finds pattern in middle of WORD too.
+- Use `n` to find next match; `N` to find previous match.
+
+### Search Highlighting
+
+- Use `:set hlsearch` to turn on.
+- Use `:set nohls` to turn off.
+- Change colors via `:hi Search ctermfg=blue ctermbg=gray` (or your favorite colors; use recognized color names, or 0-255 for [Xterm colors](https://jonasjacek.github.io/colors/) (see `:help cterm-colors` for info).
+
+### Delete lines that contain a pattern match
+
+- `:g/foo/d` **d**eletes all lines that contain "foo".
+
+
+## Autocomplete
+### Autocomplete a Word
+
+- Use `ctrl-p` (while in Insert Mode).
+- Case sensitive.
+- If multiple pattern candidates, list of choices appears.
+	- Use arrow keys (not j k) to navigate list of choices.
+- Text to be completed must be in the document.
+	- Cannot be something that was deleted.
+	- Can it be something in another open buffer?
+		- Testing with "Polynomial".  Yes, it works!
+- Shift key (using capital P) seems to work the same.
+
+
+### Autocomplete a Line
+
+- Use `ctrl-x ctrl-l` (while in Insert Mode).
+
+
+### Autocomplete Path, Filename
+
+- Search path using `ctrl-x ctrl-f` (Insert Mode).
+- Use [tab] key to autocomplete filenames in the current dir (Command Mode).
+	- Example:  `:e [tab]` cycles through files you could open.
+	- Use two dots and a tab -- i.e., `..[Tab]` or `../[Tab]` -- to go up a level in the directory tree.
+- Use `ctrl-o` to open older buffers; `ctrl-i` to cycle back through newer buffers.	
+	- I need to figure out how this relates to the `:jumps` list.
+
+## Windows and Buffers
+- Use `:split` for horizonal, `:vsplit` for vertical split window.
+	- Use `Ctrl-w` plus a direction key (h, j, k, l) to move to another pane.
+	- Use `Ctrl-w` with `+` or `-` or `<` or `>` or `=` to resize panes. Optionally, precede with a numeric count.
+	- Or, use `:resize nn` and `:vertical resize nn` to set window size.
+	- Use `:close` to close the currently active pane.
+- Use `:e foo` or `:edit foo` to open a new buffer with "foo" loaded.
+	- Combine with [Tab] autocompletion for extra goodness!
+- Use `:ls` to list the buffers currently open.
+- Use `:bd` to "delete" (really, to close) the currently active file.
+
+
+## Vim Markdown Highlighting
+
+By default, Vim assumes the `.md` file extension is for the Modulo programming language, not Markdown.  I'm now using the `.mkd` file extension.
+
+
+
+## VimRC
+
+Eventually, I'll set this up a proper .vimrc.  For now, when I launch Vim, I :set my environment.  Note: Now that I'm using `nnG` jumps more, to jump to an absolute line number, I'm not using `rnu` (relative line number) as much.  Also, I'm not using the `:autocmd` CursorLine toggle as much, because I like seeing which line I'm on, regardless of what mode I'm in.
+
+	- :set tabstop=8 wrap lbr tw=0 ruler nu rnu cursorline cursorcolumn fdm=marker 
+	- :hi CursorLine cterm=NONE ctermbg=17 ctermfg=200
+	- :hi CursorColumn ctermbg=234 ctermfg=3
+	- :autocmd InsertEnter * set cul
+	- :autocmd InsertLeave * set nocul
+	- :nunmap <C-a>
+
+
