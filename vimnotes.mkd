@@ -13,6 +13,7 @@
 ### Jumps
 - Motions are different than jumps, because jumps are stored in the `:jumps` list.
 - Use `ctrl-o` to go back in the jumpslist, and `ctrl-i` to go forward.
+	- These will also jump to other buffers.
 - Go to a specific row with `:nn` (not stored in jumpslist) or `nnG` (**is** stored in jumpslist).
 - Go to a specific column with `nn|` (that's the vertical pipe character).
 
@@ -23,10 +24,13 @@ In general, using the `Shift` key will toggle search direction.
 	- Use `n` to find next match; `N` to find previous match.
 - Use `?` to input an arbitrary backward search pattern.
 	- Use `N` to find next match; `n` to find previous match.
+- For highlighting, use `:set hlsearch`.  Suppress with `:nohlsearch`.  Turn off with `:set hlsearch!`.
+	- To edit colors, use `hi Search ctermbg=[color]` etc.
+- Use `:set ignorecase` to, uh, yeah.  Turn off with `set ignorecase!`.
 
 ### Use `g*` and `g#` to search pattern under cursor
 - Using splat or hash without `g` prefix performs exact WORD match.
-- Using `g*` or `g#` finds pattern in middle of WORD too.
+- Using `g*` or `g#` finds pattern in at beginning or middle of WORD too.
 - Use `n` to find next match; `N` to find previous match.
 
 ### Search Highlighting
@@ -77,7 +81,7 @@ In general, using the `Shift` key will toggle search direction.
 	- Use `:close` to close the currently active pane.
 - Use `:e foo` or `:edit foo` to open a new buffer with "foo" loaded.
 	- Combine with [Tab] autocompletion for extra goodness!
-- Use `:ls` to list the buffers currently open.
+- Use `:ls` or `:buffers` to list the buffers currently open.
 - Use `:bd` to "delete" (really, to close) the currently active file.
 
 
@@ -100,4 +104,3 @@ Update 2019-04-01 (about 9 months later).  I'm now using Vim colorschemes in my 
 	- :autocmd InsertEnter * set cul
 	- :autocmd InsertLeave * set nocul
 	- :nunmap <C-a>
-
