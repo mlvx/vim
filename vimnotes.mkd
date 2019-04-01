@@ -34,13 +34,23 @@ In general, using the `Shift` key will toggle search direction.
 - Use `n` to find next match; `N` to find previous match.
 
 ### Search Highlighting
-
 - Use `:set hlsearch` to turn on.
 - Use `:set nohls` to turn off.
 - Change colors via `:hi Search ctermfg=blue ctermbg=gray` (or your favorite colors; use recognized color names, or 0-255 for [Xterm colors](https://jonasjacek.github.io/colors/) (see `:help cterm-colors` for info).
 
-### Delete lines that contain a pattern match
+## Search and Replace
+- Syntax similar to `sed`:  Like, `s/old_busted/new_hotness/g`.  But, preceded by a colon.
+	- `:s/old/new/` replaces (only) the first match on the current line.
+	- `:s/old/new/g` replaces all matches on the current line.
+	- `:%s/old/new` replaces first match on all lines in current buffer.
+	- `:%s/old/new/gc` replaces all matches on all lines in current buffer, but **c**onfirms each candidate.  (confirm)
+### Search and Replace within a range of lines
+- The `%` (modulo) char defines the range as the whole document.
+- You can use line numbers to set the range, like `:3,7 s/old/new/`.
+- You can use ctrl-v to enter Visual Mode and set a range.
+- You can set the range using Vim "marks".
 
+### Delete lines that contain a pattern match
 - `:g/foo/d` **d**eletes all lines that contain "foo".
 
 
@@ -85,8 +95,7 @@ In general, using the `Shift` key will toggle search direction.
 - Use `:bd` to "delete" (really, to close) the currently active file.
 
 
-## Vim Markdown Highlighting
-
+## Vim Markdown Highlighting 
 By default, Vim assumes the `.md` file extension is for the Modulo programming language, not Markdown.  I'm now using the `.mkd` file extension.
 
 
