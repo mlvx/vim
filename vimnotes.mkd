@@ -7,18 +7,22 @@
 ## Navigation
 
 ### Motions
+
 - h j k l
 - **b**ack, **w**ord (forward), **f**ind, **t**ill, etc.
 
 ### Jumps
+
 - Motions are different than jumps, because jumps are stored in the `:jumps` list.
 - Use `ctrl-o` to go back in the jumpslist, and `ctrl-i` to go forward.
 	- These will also jump to other buffers.
 - Go to a specific row with `:nn` (not stored in jumpslist) or `nnG` (**is** stored in jumpslist).
 - Go to a specific column with `nn|` (that's the vertical pipe character).
 - Go forward a screenful:  `ctrl-f`; back a screenful:  `ctrl-b`.  Stored in jumpslist.
+- Jump to a **mark** you've set by prefacing with an apostrophe, like `'x` (where 'x' is the name of the mark).
 
 ## Search
+
 In general, using the `Shift` key will toggle search direction.
 
 - Use `/` to input an arbitrary forward search pattern.
@@ -30,22 +34,27 @@ In general, using the `Shift` key will toggle search direction.
 - Use `:set ignorecase` to, uh, yeah.  Turn off with `set ignorecase!`.
 
 ### Use `g*` and `g#` to search pattern under cursor
+
 - Using splat or hash without `g` prefix performs exact WORD match.
 - Using `g*` or `g#` finds pattern in at beginning or middle of WORD too.
 - Use `n` to find next match; `N` to find previous match.
 
 ### Search Highlighting
+
 - Use `:set hlsearch` to turn on.
 - Use `:set nohls` to turn off.
 - Change colors via `:hi Search ctermfg=blue ctermbg=gray` (or your favorite colors; use recognized color names, or 0-255 for [Xterm colors](https://jonasjacek.github.io/colors/) (see `:help cterm-colors` for info).
 
 ## Search and Replace
+
 - Syntax similar to `sed`:  Like, `s/old_busted/new_hotness/g`.  But, preceded by a colon.
 	- `:s/old/new/` replaces (only) the first match on the current line.
 	- `:s/old/new/g` replaces all matches on the current line.
 	- `:%s/old/new` replaces first match on all lines in current buffer.
 	- `:%s/old/new/gc` replaces all matches on all lines in current buffer, but **c**onfirms each candidate.  (confirm)
+
 ### Search and Replace within a range of lines
+
 - The `%` (modulo) char defines the range as the whole document.
 - You can use line numbers to set the range, like `:3,7 s/old/new/`.
 - You can use ctrl-v to enter Visual Mode and set a range.
@@ -55,7 +64,27 @@ In general, using the `Shift` key will toggle search direction.
 - `:g/foo/d` **d**eletes all lines that contain "foo".
 
 
+## Ranges
+
+I won't talk much about Visual Mode, though it is very cool for adding the same thing, in a block of lines, to the beginning or end of each line.  That's actually quite awesome.  To enter Visual Mode:  `ctrl-v`.  Use hjkl, ^, $, etc. to select.  Use `I` or `A` to insert or append; type your text; press `Esc`.  Sigh in wonder as your typing populates the block of text.  Instead of inserting or appending, you could `p` or `P` to paste -- note that this will overwrite selected columns.
+
+### Line numbers
+
+- Spec a range of lines with line numbers, like `:5,11` (lines 5 - 11), `:,11` (start of file to line 11), or `:12,` (line 12 to EOF).
+- Use to **d**elete (delete), **s**ubstitute (substitute, search and replace), **y**ank (yank, copy).
+- Does not seem to work with pasting.  Can yank from a remote location, but can't paste to a remote location.
+- Mix and match with **marks**.
+
+### Markers
+
+- Set a mark from Normal Mode with `mx` (where 'x' is the name of the mark).
+- Jump to a mark by prefacing with an apostrophe, like `'x` (where 'x' is the name of the mark).  Stored in jumpslist.
+- Set two marks, then refer to the lines between them (inclusive) like so:  `:'x,'y` (where 'x' and 'y' are the names of the marks).
+- Mix and match with **line numbers**.
+
+
 ## Autocomplete
+
 ### Autocomplete a Word
 
 - Use `ctrl-p` (while in Insert Mode).
@@ -84,7 +113,16 @@ In general, using the `Shift` key will toggle search direction.
 - Use `ctrl-o` to open older buffers; `ctrl-i` to cycle back through newer buffers.	
 	- I need to figure out how this relates to the `:jumps` list.
 
+## Case of Letters
+
+- The tilde character `~` changes the case of the character under the cursor.
+	- Use with a text element, like `g~[element]` to change the case of the text in the element.
+	- For example, `g~w` changes the case of a 'word'.  Does not work with sentences or paragraphs -- probably breaks the 'g' limiter?
+- To UPPERCASE an entire line:  `gUU` (shift-u shift-u).
+- To lowercase an entire line:  `guu`.
+
 ## Windows and Buffers
+
 - Use `:split` for horizonal, `:vsplit` for vertical split window.
 	- Use `Ctrl-w` plus a direction key (h, j, k, l) to move to another pane.
 	- Use `Ctrl-w` with `+` or `-` or `<` or `>` or `=` to resize panes. Optionally, precede with a numeric count.
@@ -97,8 +135,11 @@ In general, using the `Shift` key will toggle search direction.
 
 
 ## Vim Markdown Highlighting 
+
 By default, Vim assumes the `.md` file extension is for the Modulo programming language, not Markdown.  I'm now using the `.mkd` file extension.
 
+2019-04-02:  I added a function to /.vimrc that uses Markdown headings as fold markers, copying from a StackOverflow answer:
+https://stackoverflow.com/questions/3828606/vim-markdown-folding
 
 
 ## VimRC
