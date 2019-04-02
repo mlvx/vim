@@ -16,6 +16,7 @@
 	- These will also jump to other buffers.
 - Go to a specific row with `:nn` (not stored in jumpslist) or `nnG` (**is** stored in jumpslist).
 - Go to a specific column with `nn|` (that's the vertical pipe character).
+- Go forward a screenful:  `ctrl-f`; back a screenful:  `ctrl-b`.  Stored in jumpslist.
 
 ## Search
 In general, using the `Shift` key will toggle search direction.
@@ -76,7 +77,7 @@ In general, using the `Shift` key will toggle search direction.
 
 ### Autocomplete Path, Filename
 
-- Search path using `ctrl-x ctrl-f` (Insert Mode).
+- Search path using `ctrl-x ctrl-f` (while in Insert Mode).
 - Use [tab] key to autocomplete filenames in the current dir (Command Mode).
 	- Example:  `:e [tab]` cycles through files you could open.
 	- Use two dots and a tab -- i.e., `..[Tab]` or `../[Tab]` -- to go up a level in the directory tree.
