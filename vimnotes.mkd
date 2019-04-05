@@ -19,7 +19,11 @@
 - Go to a specific row with `:nn` (not stored in jumpslist) or `nnG` (**is** stored in jumpslist).
 - Go to a specific column with `nn|` (that's the vertical pipe character).
 - Go forward a screenful:  `ctrl-f`; back a screenful:  `ctrl-b`.  Stored in jumpslist.
-- Jump to a **mark** you've set by prefacing with an apostrophe, like `'x` (where 'x' is the name of the mark).
+- Jump to a **mark** you've set by prefacing with an apostrophe, like `'x`; or with a backtick character followed by 'x' (where 'x' is the name of the mark).  Looks like **backtick** goes to the specific column of your mark; but **apostrophe** goes to column 0 on the line of your bookmark.
+	- (Not gonna type the backtick because I think it'll confuse Markdown, and it's not worth the time to figure out the escaping -- which is gonna look hella confusing in the raw text file, which is what I'm looking at most of the time.)
+	- To view your marks (a.k.a. bookmarks), in normal mode, `:marks` Enter.
+	- I've embedded marks `a`, `b`, and `c` in this section, for practice.  No idea what Pandoc will do with them on conversion to HTML and PDF.  Probably ignore them.
+
 
 ## Search
 
@@ -66,7 +70,7 @@ In general, using the `Shift` key will toggle search direction.
 
 ## Ranges
 
-I won't talk much about Visual Mode, though it is very cool for adding the same thing, in a block of lines, to the beginning or end of each line.  That's actually quite awesome.  To enter Visual Mode:  `ctrl-v`.  Use hjkl, ^, $, etc. to select.  Use `I` or `A` to insert or append; type your text; press `Esc`.  Sigh in wonder as your typing populates the block of text.  Instead of inserting or appending, you could `p` or `P` to paste -- note that this will overwrite selected columns.
+I won't talk much about Visual Mode, though Visual Block Mode is very cool for adding the same thing, in a block of lines, to the beginning or end of each line.  That's actually quite awesome.  To enter Visual Block Mode:  `ctrl-v`.  Use hjkl, ^, $, etc. to select.  Use `I` or `A` to insert or append; type your text; press `Esc`.  Sigh in wonder as your typing populates the block of text.  Instead of inserting or appending, you could `p` or `P` to paste -- note that this will overwrite selected columns.
 
 ### Line numbers
 
@@ -83,11 +87,19 @@ I won't talk much about Visual Mode, though it is very cool for adding the same 
 - Mix and match with **line numbers**.
 
 
-## Autocomplete
+## Automatic Text:  Auto-Insert, Auto-Complete, and Macros
+
+### Auto-insert Text
+
+- In normal mode, type a number (say, 3); then type your text (say, \t- exampletext\n); then type escape.  Your text will appear the number of times you specified, as below.  (Ah, the hours of <td><a href=""><img src=""></a></td> I could have saved, had I known of this cool feature sooner!)
+	- exampletext
+	- exampletext
+	- exampletext
+
 
 ### Autocomplete a Word
 
-- Use `ctrl-p` (while in Insert Mode).
+- Use `ctrl-n` or `ctrl-p` (while in Insert Mode).
 - Case sensitive.
 - If multiple pattern candidates, list of choices appears.
 	- Use arrow keys (not j k) to navigate list of choices.
@@ -104,6 +116,14 @@ I won't talk much about Visual Mode, though it is very cool for adding the same 
 - Use `ctrl-x ctrl-l` (while in Insert Mode).
 
 
+### Macros
+
+- In normal mode, use `qx` (where "x" is any letter) to begin recording.
+- Back (or still) in normal mode, press `q` again to stop recording.
+- To use your macro, type `@x` (where "x" is the letter you chose) and press Enter.
+	- To repeat the macro, you can use `@@`.
+
+
 ### Autocomplete Path, Filename
 
 - Search path using `ctrl-x ctrl-f` (while in Insert Mode).
@@ -112,6 +132,14 @@ I won't talk much about Visual Mode, though it is very cool for adding the same 
 	- Use two dots and a tab -- i.e., `..[Tab]` or `../[Tab]` -- to go up a level in the directory tree.
 - Use `ctrl-o` to open older buffers; `ctrl-i` to cycle back through newer buffers.	
 	- I need to figure out how this relates to the `:jumps` list.
+
+
+## Vim File Explorer
+
+- In normal mode, type `:Ex`, `:Explore`, `:Sexplore`, or `:Vexplore`.  (Case matters.)  OMG.  A new pane, showing the current directory.
+- To open File Explorer in a tab, type `:Texplore`.
+- To close the File Explorer, navigate to that pane (ctrl-w k etc.), then `:bdel` to "delete" (i.e., close) the buffer.
+
 
 ## Case of Letters
 
